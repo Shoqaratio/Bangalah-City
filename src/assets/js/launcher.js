@@ -15,10 +15,35 @@ const { AZauth, Microsoft, Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
 const fs = require('fs');
 
+const RPC = require("discord-rpc");
+const clientId = '1093572467525681262';
+
+
+function setRichPresence() {
+    const rpc = new RPC.Client({ transport: 'ipc' });
+  
+    rpc.on('ready', () => {
+      rpc.setActivity({
+        details: 'Joue à BangaCity',    // Ce que l'utilisateur est en train de faire
+        state: 'En jeu !', // État
+        startTimestamp: Date.now(),  // Horodatage de début
+        largeImageKey: 'bosh', // Clé de l'image (image téléchargée dans votre application Discord)
+        largeImageText: 'ntm', // Description de l'image
+        smallImageKey: 'bosh', // Petite image (facultatif)
+        smallImageText: 'mylhan fdp', // (facultatif)
+        instance: true
+      });
+    });
+  
+    rpc.login({ clientId }).catch(console.error);
+  }
+
 class Launcher {
     async init() {
         this.initLog();
         console.log('Initializing Launcher...');
+        setRichPresence();
+        console.log("Rich presence!");
         this.shortcut()
         await setBackground()
         if (process.platform == 'win32') this.initFrame();
@@ -105,7 +130,7 @@ class Launcher {
                     }
                 },
                 launcher_config: {
-                    download_multi: 5,
+                    download_multi: 1,
                     theme: 'auto',
                     closeLauncher: 'close-launcher',
                     intelEnabledMac: true

@@ -3,12 +3,12 @@
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
+
 const { ipcRenderer, shell } = require('electron');
 const pkg = require('../package.json');
 const os = require('os');
 import { config, database } from './utils.js';
 const nodeFetch = require("node-fetch");
-
 
 class Splash {
     constructor() {
@@ -30,9 +30,9 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Je... vie...", "author": "Luuxis" },
-            { "message": "Salut je suis du code.", "author": "Luuxis" },
-            { "message": "Linux n'est pas un os, mais un kernel.", "author": "Luuxis" }
+            { "message": "07 68 67 82 41 (daronne a Samih)", "author": "Mylhan" },
+            { "message": "mangez vos morts", "author": "Astéfion" },
+            { "message": "Faut aller dans le bios", "author": "Kirby54" }
         ];
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
@@ -161,4 +161,5 @@ document.addEventListener("keydown", (e) => {
         ipcRenderer.send("update-window-dev-tools");
     }
 })
+
 new Splash();

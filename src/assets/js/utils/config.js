@@ -48,6 +48,8 @@ class Config {
                         let response = await config.text()
                         response = (JSON.parse(convert.xml2json(response, { compact: true })))?.rss?.channel?.item;
 
+                        console.log(response);
+
                         if (!Array.isArray(response)) response = [response];
                         for (let item of response) {
                             news.push({

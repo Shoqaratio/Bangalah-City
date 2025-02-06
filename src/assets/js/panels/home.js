@@ -22,6 +22,12 @@ class Home {
         let newsElement = document.querySelector('.news-list');
         let news = await config.getNews().then(res => res).catch(err => false);
         if (news) {
+            console.log(news);
+        } else {
+            console.log(err);
+        }
+        
+        if (news) {
             if (!news.length) {
                 let blockNews = document.createElement('div');
                 blockNews.classList.add('news-block');
@@ -259,14 +265,14 @@ class Home {
             infoStarting.innerHTML = `Téléchargement ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
-            progressBar.max = size;
+            //progressBar.max = size; cause un crash du process install
         });
 
         launch.on('check', (progress, size) => {
             infoStarting.innerHTML = `Vérification ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
-            progressBar.max = size;
+            //progressBar.max = size; cause un crash du process install
         });
 
         launch.on('estimated', (time) => {
