@@ -1,7 +1,7 @@
 {
     "name": "BangaCity",
     "preductname": "BangaCity",
-    "version": "2.0.8",
+    "version": "2.0.9",
     "description": "La BangaCity est la meilleure ville de MC fuck les rageux vive les ops",
     "main": "src/app.js",
     "author": {
