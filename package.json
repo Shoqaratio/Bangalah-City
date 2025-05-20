@@ -1,7 +1,7 @@
 {
     "name": "BangaCity",
     "preductname": "BangaCity",
-    "version": "2.0.9",
+    "version": "2.1.0",
     "description": "La BangaCity est la meilleure ville de MC fuck les rageux vive les ops",
     "main": "src/app.js",
     "author": {
@@ -9,7 +9,7 @@
         "email": "r.aaron@mega-hosting.fr",
         "url": "https://github.com/Shoqaratio"
     },
-    "url": "https://bangalahcity.galaxiafn.co.uk",
+    "url": "https://bgh.rvk-networks.com",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
